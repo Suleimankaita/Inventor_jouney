@@ -14,14 +14,23 @@ class Lesson1 {
         this->size=size;
         this->data=new int[size];
     }
-    Lesson1(const Lesson1&other){
-        this->size=other.size;
-        this->data=new int[other.size];
+    Lesson1 & operator=(const Lesson1&other){
+
+        if(this==&other){
+            return *this;
+        }
+            delete[] this->data;
+
+            this->size=other.size;
+            
+            this->data=new int[other.size];
+            
+            for(int i=0;i<size;i++){
+                this->data[i]=other.data[i];
+            }
         
-        for(int i=0;i<size;i++){
-            this->data[i]=other.data[i];
-        };
-    }   
+        return *this;
+    }
     ~Lesson1(){
         delete[] data; 
     }
