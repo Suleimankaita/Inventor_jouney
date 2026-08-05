@@ -1,7 +1,12 @@
 #ifndef LESSON_H
 #define LESSON_H
 #pragma once
+
 #include<string>
+#include<array>
+#include<iostream>
+
+void Lesson2();
 
 class Lesson1 {
     private:

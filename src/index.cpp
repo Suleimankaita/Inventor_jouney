@@ -54,21 +54,24 @@ class my{
 
 int main()
 {   
-    Lesson1 lesson(5);
+    // Lesson1 lesson(5);
 
-    lesson.set(0, 10);
-    lesson.set(1, 20);
-    lesson.set(2, 30);
-    lesson.set(3, 40);
-    lesson.set(4, 50);
+    // lesson.set(0, 10);
+    // lesson.set(1, 20);
+    // lesson.set(2, 30);
+    // lesson.set(3, 40);
+    // lesson.set(4, 50);
 
-    cout<<lesson.get(3)<<endl; 
+    // cout<<lesson.get(3)<<endl; 
 
-    array<int, 5>arr= lesson.print();
+    // array<int, 5>arr= lesson.print();
 
-    for(int S:arr){
-        cout<<S<<" ";
-    }
+    // for(int S:arr){
+    //     cout<<S<<" ";
+    // }
+
+
+    Lesson2();
     //     my obj1(5);
 // obj1.set(0, 10);
 // obj1.set(1, 20);
