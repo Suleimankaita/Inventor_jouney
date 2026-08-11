@@ -1,69 +1,93 @@
 #ifndef LESSON_H
 #define LESSON_H
 #pragma once
-
 #include<string>
 #include<array>
 #include<iostream>
 
 void Lesson2();
 
-class Lesson1 {
-    private:
-    int *data;
+using namespace std;
+
+class My {
+   private:
+    int* data;
     int size;
-    
-    public:
 
-    Lesson1(int size){
-        this->size=size;
-        this->data=new int[size];
+public:
+
+    // Constructor
+    My(int size) {
+        this->size = size;
+        this->data = new int[size]();
     }
-    Lesson1 & operator=(const Lesson1&other){
 
-        if(this==&other){
+    // Copy Constructor
+    My(const My& other) {
+        this->size = other.size;
+        this->data = new int[this->size]();
+
+        for (int i = 0; i < this->size; i++) {
+            this->data[i] = other.data[i];
+        }
+    }
+
+    // Copy Assignment Operator
+    My& operator=(const My& other) {
+
+        // Prevent:
+        // a = a;
+        if (this == &other) {
             return *this;
         }
-            delete[] this->data;
 
-            this->size=other.size;
-            
-            this->data=new int[other.size];
-            
-            for(int i=0;i<size;i++){
-                this->data[i]=other.data[i];
-            }
-        
+        // Free old memory
+        delete[] this->data;
+
+        // Allocate new memory
+        this->size = other.size;
+        this->data = new int[this->size]();
+
+        // Copy values
+        for (int i = 0; i < this->size; i++) {
+            this->data[i] = other.data[i];
+        }
+
         return *this;
     }
-    ~Lesson1(){
-        delete[] data; 
-    }
-    void set(int index, int value){
-        if(index>=0 && index<size){
-            this->data[index]=value;
-        }
-    }
-    
-    int get(int index){
-        
-        if(index>=0 && index<size){
-            return data[index];
-        }
-        return -1;
+
+    // Destructor
+    ~My() {
+        delete[] this->data;
     }
 
-     std::array<int, 5> print(){
-        std::array<int, 5> arr;
-        for(int i=0;i<size;i++){
-            arr[i]=this->data[i];
-        }
-        return arr;
-     }
+    int get(int index) {
 
-     void printAddress(){
-        std::cout<<"Address of data: "<<this->data<<std::endl;
-     }
+        if (index < 0 || index >= this->size) {
+            cout << "Invalid index!" << endl;
+            return -1;
+        }
+
+        return this->data[index];
+    }
+
+    void set(int index, int value) {
+
+        if (index < 0 || index >= this->size) {
+            cout << "Invalid index!" << endl;
+            return;
+        }
+
+        this->data[index] = value;
+    }
+
+    void print() {
+        for (int i = 0; i < this->size; i++) {
+            cout << this->data[i] << " ";
+        }
+
+        cout << endl;
+    }
 
 };
 
