@@ -6,6 +6,7 @@
 #include<iostream>
 
 void Lesson2();
+void Inventory();
 
 using namespace std;
 
