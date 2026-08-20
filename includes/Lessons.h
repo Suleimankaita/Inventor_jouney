@@ -5,9 +5,11 @@
 #include<array>
 #include<iostream>
 
+using namespace std;
+
 void Lesson2();
 
-using namespace std;
+string Method(string name,string target);
 
 class My {
    private:
