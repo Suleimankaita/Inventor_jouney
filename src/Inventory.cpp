@@ -2,6 +2,8 @@
 #include <vector>
 #include <ctime>
 #include "Lessons.h"
+#include <thread>
+#include <chrono>
 
 struct Cylinder
 {
@@ -14,6 +16,13 @@ struct Cylinder
 
 void Inventory()
 {
+    auto now = std::chrono::system_clock::now();
+    std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
+    std::tm localtime{};
+    localtime_s(&localtime,&currentTime);
+
+    std::cout << put_time(&localtime, "%Y-%m-%d")<<"\n";
+    std::cout << put_time(&localtime, "%H-%M-%S")<<"\n";
 
     std::vector<Cylinder> arr;
     std::cout << "=============================" << endl;
@@ -40,9 +49,9 @@ void Inventory()
         std::cin >> cy.kg;
         arr.push_back(cy);
     };
-    std::cout<<"Print"<<std::endl;
-    for(const Cylinder&c :arr ){
-        std::cout<<c.name<<std::endl;
+    std::cout << "Print" << std::endl;
+    for (const Cylinder &c : arr)
+    {
+        std::cout << c.name << std::endl;
     }
-
 };
