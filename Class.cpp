@@ -35,4 +35,4 @@ class Cl{
         delete[] this->data;
     }
 
-}
+};

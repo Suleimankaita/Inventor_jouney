@@ -8,6 +8,8 @@
 using namespace std;
 
 void Lesson2();
+int WriteFile();
+void ReadFiles();
 
 string Method(string name,string target);
 
@@ -24,7 +26,6 @@ public:
         this->data = new int[size]();
     }
 
-    // Copy Constructor
     My(const My& other) {
         this->size = other.size;
         this->data = new int[this->size]();
@@ -34,23 +35,17 @@ public:
         }
     }
 
-    // Copy Assignment Operator
     My& operator=(const My& other) {
 
-        // Prevent:
-        // a = a;
         if (this == &other) {
             return *this;
         }
 
-        // Free old memory
         delete[] this->data;
 
-        // Allocate new memory
         this->size = other.size;
         this->data = new int[this->size]();
 
-        // Copy values
         for (int i = 0; i < this->size; i++) {
             this->data[i] = other.data[i];
         }
@@ -58,7 +53,6 @@ public:
         return *this;
     }
 
-    // Destructor
     ~My() {
         delete[] this->data;
     }
