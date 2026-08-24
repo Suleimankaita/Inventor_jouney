@@ -15,6 +15,8 @@ struct Expenses{
 };
 
 
+std::string Tell();
+
 void SetExpenses();
 
 void printExpenses();

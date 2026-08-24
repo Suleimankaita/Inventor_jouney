@@ -13,7 +13,8 @@ int main (){
     
     // std::cout << "Date: "<< std::put_time(&localtime, "%Y-%m-%d") << '\n';
     // std::cout << "minute: "<< std::put_time(&localtime, "%H:%M:%S") << '\n';
-    SetExpenses();
+    // SetExpenses();
+    Tell();
 // WriteFile();
 // ReadFiles();
 //     std::ifstream file("data.txt");
