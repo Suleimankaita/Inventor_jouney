@@ -5,6 +5,8 @@
 #include<array>
 #include<iostream>
 
+void Lesson2();
+
 using namespace std;
 
 void Lesson2();
