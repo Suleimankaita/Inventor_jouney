@@ -1,52 +1,75 @@
-#include<iostream>
-#include<Lessons.h>
-#include<fstream>
-
-// struct User{
-//     int id,Age,level;
-//     std::string Name;
-
-// };
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "Lessons.h"
 
 struct User {
+    char Name[100];
     int id;
-    int age;
+    int Age;
+    int Level;
 };
 
 
+std::string ReadFiles() {
 
-void ReadFiles(){
+    std::ifstream file("docs.txt");
 
-//     std::ifstream file("user.dat",std::ios::binary);
-// //     std::fstream file(
-// //     "data.txt",
-// //     std::ios::in | std::ios::out
-// // );
-//     // std::string Name,Age,level;
-//     // file<<"Many Dan Manu yusuf";
-//     User user;
-//     while (file.read(
-//         reinterpret_cast<char*>(&user),
-//         sizeof(user)))
-//     {
-//         std::cout<<user.Name<<"\n";
-//         std::cout<<user.Age<<"\n";
-//         // std::cout<<user.level<<"\n";
-//     }
-//     file.close();
-    
-    std::ifstream file("user.dat",std::ios::binary);
-
-    User user;
-
-    while (file.read(reinterpret_cast<char*>(&user),sizeof(user)))
-    {
-        std::cout<<"ID :"<<user.id<<"\n";
-        std::cout<<"Age :"<<user.age<<"\n";
+    if (!file) {
+        return "Couldn't open docs.txt";
     }
-    
 
+    int id;
+    std::string name;
+    int age;
+    int level;
+
+    while (file >> id >> name >> age >> level) {
+
+        std::cout << "ID: " << id << "\n";
+        std::cout << "Name: " << name << "\n";
+        std::cout << "Age: " << age << "\n";
+        std::cout << "Level: " << level << "\n";
+
+        std::cout << "-------------------\n";
+    }
 
     file.close();
 
+    return "Text file successfully opened and read";
+}
+
+
+
+std::string ReadBinaryData() {
+
+    std::ifstream file(
+        "user.dat",
+        std::ios::binary
+    );
+
+    if (!file) {
+        return "Couldn't open the binary file";
+    }
+
+    User user{};
+
+    while (
+        file.read(
+            reinterpret_cast<char*>(&user),
+            sizeof(User)
+        )
+    ) {
+
+        std::cout << "ID: " << user.id << "\n";
+        std::cout << "Name: " << user.Name << "\n";
+        std::cout << "Age: " << user.Age << "\n";
+        std::cout << "Level: " << user.Level << "\n";
+
+        std::cout << "-------------------\n";
+    }
+
+    file.close();
+
+    return "Binary file successfully opened and read";
 }

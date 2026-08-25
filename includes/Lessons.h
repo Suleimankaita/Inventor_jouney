@@ -9,9 +9,13 @@ void Lesson2();
 
 using namespace std;
 
+std::string SearchTxtFiles();
 void Lesson2();
-int WriteFile();
-void ReadFiles();
+std::string WriteFile();
+std::string WriteBinaryFile();
+std::string ReadFiles();
+std::string ReadBinaryData();
+std::string Search();
 
 string Method(string name,string target);
 

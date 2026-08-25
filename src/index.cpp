@@ -14,8 +14,14 @@ int main (){
     // std::cout << "Date: "<< std::put_time(&localtime, "%Y-%m-%d") << '\n';
     // std::cout << "minute: "<< std::put_time(&localtime, "%H:%M:%S") << '\n';
     // SetExpenses();
-WriteFile();
-ReadFiles();
+// WriteFile();
+// ReadFiles();
+// SearchTxtFiles();
+WriteBinaryFile();
+ReadBinaryData();
+// Search();
+
+// std::cout<<Search()<<"\n";
 //     std::ifstream file("data.txt");
 
 //     if(!file){

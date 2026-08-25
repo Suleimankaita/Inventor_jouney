@@ -1,99 +1,112 @@
-#include<Expense.h>
-#include<fstream>
-#include<iostream>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+#include <cctype>
+#include "Lessons.h"
 
 struct User {
-int id;
-int age;
+    char Name[100];
+    int id;
+    int Age;
+    int Level;
 };
 
+std::string tolow(std::string name) {
+    for (char& c : name) {
+        c = static_cast<char>(
+            std::tolower(static_cast<unsigned char>(c))
+        );
+    }
 
-int WriteFile(){
-
-
-
-
-    // User user[]={
-    //     1, 24,
-    //     2, 1,
-    //     3, 4
-    // };
-
-    // std::ofstream file(
-    //     "users.dat",
-    //     std::ios::binary
-    // );
-
-    // file.write(
-    //     reinterpret_cast<char*>(&user),
-    //     sizeof(user)
-    // );
-
-    // file.close();
-
-    // return 0;
-
-
-std::ofstream file("user.dat",std::ios::binary);
-
-User user[]={
-    1,20,
-    2,30,
-    3,310,
-};
-
-file.write(reinterpret_cast<char*>(&user),sizeof(user));
-
-file.close();
-
-
-return 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // std::fstream file("docs.txt",
-// //  std::ios::app | std::ios::out);
-
-// // if(!file){
-// //     std::cout<<"Could't open this file \n";
-// //     return 1;
-// // };
-
-// // std::string Name,Age,level;
-// // file<<"Name:Manu\n";
-// // file<<"Age:22\n";
-// // file<<"level:202\n";
-//   std::ifstream file("data.txt");
-
-//     char ch;
-
-//     while (file.get(ch)) {
-
-//         std::cout << ch;
-//     }
-
-    // file.close();
-
-    // return 0;
-
-// while (file>>Name>>Age>>level){
-//     std::cout<<Name;
-//     std::cout<<Age;
-//     std::cout<<level;
-// }
-
-
+    return name;
 }
+
+
+std::string WriteFile() {
+
+    std::ofstream file("docs.txt", std::ios::app);
+
+    if (!file) {
+        return "Couldn't open the file";
+    }
+
+    int size;
+
+    std::cout << "Write down the size of the users: ";
+    std::cin >> size;
+
+    for (int i = 0; i < size; i++) {
+
+        User user;
+
+        int id = std::rand() % 1000 + 1;
+
+        std::cout << "\nWrite down the name of the user: ";
+        std::cin >> user.Name;
+
+        std::cout << "Write down the age of the user: ";
+        std::cin >> user.Age;
+
+        std::cout << "Write down the level of the user: ";
+        std::cin >> user.Level;
+
+        user.id = id;
+
+        file << user.id << "\n";
+        file << tolow(user.Name) << "\n";
+        file << user.Age << "\n";
+        file << user.Level << "\n";
+    }
+
+    file.close();
+
+    return "Writing to text file was successful";
+}
+
+
+
+std::string WriteBinaryFile() {
+
+    std::ofstream file(
+        "user.dat",
+        std::ios::binary | std::ios::app
+    );
+
+    if (!file) {
+        return "Couldn't open the binary file";
+    }
+
+    int size;
+
+    std::cout << "Write down the size of the users: ";
+    std::cin >> size;
+
+    for (int i = 0; i < size; i++) {
+
+        User user{};
+
+        user.id = std::rand() % 1000 + 1;
+
+        std::cout << "\nWrite down the name of the user: ";
+        std::cin >> user.Name;
+
+        std::cout << "Write down the age of the user: ";
+        std::cin >> user.Age;
+
+        std::cout << "Write down the level of the user: ";
+        std::cin >> user.Level;
+
+        file.write(
+            reinterpret_cast<const char*>(&user),
+            sizeof(User)
+        );
+    }
+
+    file.close();
+
+    return "Writing to binary file was successful";
+}
+
+
