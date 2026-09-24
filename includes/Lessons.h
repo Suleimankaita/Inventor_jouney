@@ -6,6 +6,7 @@
 #include<iostream>
 
 void Lesson2();
+void RAIIS();
 
 using namespace std;
 
@@ -17,7 +18,14 @@ std::string ReadFiles();
 std::string ReadBinaryData();
 std::string Search();
 
-string Method(string name,string target);
+// string Method(string name,string target);
+
+// std::string Method(std::string name, std::string target)
+// {
+//     (void)target;
+
+//     return name;
+// }
 
 class My {
    private:

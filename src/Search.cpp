@@ -37,7 +37,7 @@ std::string Search(){
 std::string SearchTxtFiles(){
     
     std::ifstream file("docs.txt");
-
+    
     if(!file)std::cout<<"Data.txt could'n open "<<std::endl;
 
     std::string Name,Age,level,Id;

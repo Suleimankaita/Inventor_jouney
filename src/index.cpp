@@ -5,7 +5,32 @@
 #include<Expense.h>
 #include<Lessons.h>
 #include<fstream>
+#include "Inventory.h"
+
+
 int main (){
+
+    // AddProduct();
+
+    SearchProduct("Name:Resistor");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // auto now=std::chrono::system_clock::now();
     // std::time_t currentTime=std::chrono::system_clock::to_time_t(now);
     // std::tm localtime{};
@@ -17,8 +42,18 @@ int main (){
 // WriteFile();
 // ReadFiles();
 // SearchTxtFiles();
-WriteBinaryFile();
-ReadBinaryData();
+// WriteBinaryFile();
+// ReadBinaryData();
+
+// std::string a = "A very very very long string...";
+
+// std::string b = std::move(a);
+
+// std::cout<<a<<"\n";
+// std::cout<<b<<"\n";
+
+// RAIIS();
+
 // Search();
 
 // std::cout<<Search()<<"\n";

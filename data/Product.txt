@@ -1,0 +1,12 @@
+Name:Resistor
+Amount:3000
+Qauntity21
+Name:Capacitor
+Amount:2001
+Qauntity21
+Name:Diodes
+Amount:4000
+Qauntity21
+Name:Buzzer
+Amount:9000
+Qauntity21
