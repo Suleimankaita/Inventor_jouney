@@ -12,7 +12,8 @@ int main (){
 
     // AddProduct();
 
-    SearchProduct("Name:Resistor");
+    // SearchProduct("Resistor");
+    SaleProduct("Resistor");
 
 
 
