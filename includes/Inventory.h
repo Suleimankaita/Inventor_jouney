@@ -11,6 +11,8 @@ struct Product{
 
 void AddProduct();
 
+void RemoveProduct();
+
 void SaleProduct(std::string ProductName);
 void SearchProduct(std::string Name);
 
